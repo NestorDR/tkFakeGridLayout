@@ -44,6 +44,7 @@ DEFAULT_GRID_COLUMNS_WIDTH = (DEFAULT_LABEL_WIDTH,              # 1º column
                               DEFAULT_LABEL_WIDTH,              # 3º column
                               DEFAULT_INPUT_WIDGET_WIDTH)       # 4º column
 ````
+
 With the screen understood as a grid, but using Tkinter's Place Layout Manager to position the widgets, a mechanism is needed to translate the positioning (row, column) of the grid, to the positioning (pixel x, pixel y) of the Place Layout Manager. In this example project that mechanism is the function `get_place`, as follows:
 ````python
 # helper/layout.py
@@ -66,8 +67,8 @@ def get_place(self,
     x_ = sum(self.__columns_width[:col_number_ - 1]) + DEFAULT_LEFT_MARGIN * col_number_
     y_ = sum(self.__rows_height[:row_number_ - 1]) + DEFAULT_TOP_MARGIN * row_number_
     return x_, y_
-
 ````
+
 Note that each widget is expected to have a left margin and a top margin.
 
 ## Use
