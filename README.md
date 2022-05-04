@@ -54,19 +54,30 @@ DEFAULT_TOP_MARGIN = 5
 
 . . .
 
-def get_place(self,
-              row_number_: int,
-              col_number_: int) -> ():
+class FakeGridLayout:
     """
-    Calculates the exact coordinates (x, y) to place the widget inside the parent container, obtained from a
-      fake-grid mimicked by GRID_ROWS_HEIGHT and GRID_COLUMNS_WIDTH
-    :param row_number_: where the widget will be placed inside the container
-    :param col_number_: where the widget will be placed inside the container
-    :return: coordinates (x, y) to Place the widget inside the container
+    Class to simulate a Grid (rows x columns) inside the Container based on the Place layout manager,
+      thus calculating for each widget absolute coordinates (x, y).
     """
-    x_ = sum(self.__columns_width[:col_number_ - 1]) + DEFAULT_LEFT_MARGIN * col_number_
-    y_ = sum(self.__rows_height[:row_number_ - 1]) + DEFAULT_TOP_MARGIN * row_number_
-    return x_, y_
+    def __init__(self,
+                 rows_height_: () = DEFAULT_GRID_ROWS_HEIGHT,
+                 columns_width_: () = DEFAULT_GRID_COLUMNS_WIDTH):
+        self.__rows_height = rows_height_
+        self.__columns_width = columns_width_
+
+    def get_place(self,
+                  row_number_: int,
+                  col_number_: int) -> ():
+        """
+        Calculates the exact coordinates (x, y) to place the widget inside the parent container, obtained from a
+          fake-grid mimicked by GRID_ROWS_HEIGHT and GRID_COLUMNS_WIDTH
+        :param row_number_: where the widget will be placed inside the container
+        :param col_number_: where the widget will be placed inside the container
+        :return: coordinates (x, y) to Place the widget inside the container
+        """
+        x_ = sum(self.__columns_width[:col_number_ - 1]) + DEFAULT_LEFT_MARGIN * col_number_
+        y_ = sum(self.__rows_height[:row_number_ - 1]) + DEFAULT_TOP_MARGIN * row_number_
+        return x_, y_
 ````
 
 Note that each widget is expected to have a left margin and a top margin.
