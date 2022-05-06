@@ -12,7 +12,8 @@ env/
 # build
 build/
 dist/
-*.cmd
+build.cmd
+make.cmd
 *.spec
 
 # files
