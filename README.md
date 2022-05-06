@@ -18,7 +18,7 @@ But for the row of buttons I propose a customised structure, which does not resp
 Unlike the dynamic dimensions of Tkinter's Grid Layout Manager, which are not so easy to control, I prefer fixed dimensions for rows and columns. Knowing what widgets a screen needs, those dimensions can be clearly set to achieve a screen layout as follows:
 
 <div align="center">
-  <img width="622" height="531" src="assets/screen.png" alt="Implemented screen">
+  <img width="752" height="540" src="assets/screen.png" alt="Implemented screen">
 </div>
 
 The rows, columns and their dimensions for that screen were set using the following code snippet:
