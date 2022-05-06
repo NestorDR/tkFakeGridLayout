@@ -9,11 +9,19 @@ So far I don't feel comfortable with Tkinter layout managers. Maybe because of m
 Of course, the screen can be modeled as a grid of **m** rows by **n** columns, thus `(m x n)`. And inside each cell we can put a Tkinter widget, or even one could also span several columns, as shown in the mockup below:
 ![Mockup](/assets/mockup.png "Screen layout as a grid of fixed rows and columns")
 
+<div align="center">
+  <img width="752" height="322" src="assets/mockup.png">
+</div>
+
 But for the row of buttons I propose a customised structure, which does not respect the columns of the grid. 
 
 ## Implementation
 Unlike the dynamic dimensions of Tkinter's Grid Layout Manager, which are not so easy to control, I prefer fixed dimensions for rows and columns. Knowing what widgets a screen needs, those dimensions can be clearly set to achieve a screen layout as follows:
 ![Screen](/assets/screen.png "Implemented screen")
+
+<div align="center">
+  <img width="622" height="531" src="assets/screen.png">
+</div>
 
 The rows, columns and their dimensions for that screen were set using the following code snippet:
 ````python

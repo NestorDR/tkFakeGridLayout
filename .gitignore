@@ -6,8 +6,14 @@ __pycache__/
 .vscode/
 snippets/
 
-# python environment
+# environment
 env/
+
+# build
+build/
+dist/
+*.cmd
+*.spec
 
 # files
 notes.txt
