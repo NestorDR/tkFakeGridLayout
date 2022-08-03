@@ -3,11 +3,11 @@
 def is_none_empty(s) -> bool:
     """
     Indicates whether the specified string is null or an empty string ("").
-    Visit: https://stackoverflow.com/questions/9573244/how-to-check-if-the-string-is-empty
+    Visit: https://stackoverflow.com/questions/9573244/how-to-check-if-the-string-is-empty#answer-55747410
     :param s: string
     :return: True whether the specified string is null or an empty string (""), otherwise False.
     """
-    return s is None or "".__eq__(s) or s.isspace()
+    return s is None or "".__eq__(s)
 
 
 def is_none_empty_space(s) -> bool:
