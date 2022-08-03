@@ -56,7 +56,8 @@ class Application(tk.Frame):
 
     def __create_widgets(self):
         """
-        Create and add the widgets to the container thought as a grid, but positioning them after translation to Place positioning
+        Create and add the widgets to the container thought as a grid, but positioning them after translation to Place
+          positioning.
         """
         # Get fake grid to var to made easier its referenced
         fk = self.fake_grid
@@ -82,7 +83,7 @@ class Application(tk.Frame):
         x_, y_ = fk.get_place(2, 2)             # get absolute (x, y) Place for widget in fake row 2 and fake col 2
         # Dropdown genre menu options
         genre_values = Genres().fechtall('name ASC')        # get list of values for movie genre combo box from database
-        genre_values = [tple[1] for tple in genre_values]   # with list comprehension extract name (2º column)
+        genre_values = [tuple_[1] for tuple_ in genre_values]   # with list comprehension extract name (2º column)
         self.genre = tk.StringVar(self)
         self.combobox_genre = self.__create_combobox(self.genre, genre_values, False, x_, y_,
                                                      width_=layout.DEFAULT_INPUT_WIDGET_WIDTH)
@@ -579,11 +580,11 @@ class MenuBar(tk.Menu):
 
         # Create a drop-down Edit menu
         edit_menu_ = tk.Menu(self, tearoff=False)
-        edit_menu_.add_command(label="Undo", command=lambda: self.__press_ctrl_plus('z'))
+        edit_menu_.add_command(label="Undo", command=lambda: __press_ctrl_plus('z'))
         edit_menu_.add_separator()
-        edit_menu_.add_command(label="Cut", command=lambda: self.__press_ctrl_plus('x'))
-        edit_menu_.add_command(label="Copy", command=lambda: self.__press_ctrl_plus('c'))
-        edit_menu_.add_command(label="Paste", command=lambda: self.__press_ctrl_plus('v'))
+        edit_menu_.add_command(label="Cut", command=lambda: __press_ctrl_plus('x'))
+        edit_menu_.add_command(label="Copy", command=lambda: __press_ctrl_plus('c'))
+        edit_menu_.add_command(label="Paste", command=lambda: __press_ctrl_plus('v'))
         # Associate drop-down Edit menu to the menu bar
         self.add_cascade(label="Edit", menu=edit_menu_)
 
@@ -594,22 +595,22 @@ class MenuBar(tk.Menu):
         self.add_cascade(label="Help", menu=help_menu_)
 
     @staticmethod
-    def __press_ctrl_plus(key_):
-        """
-        Simulates to press a key while holding <ctrl> key
-        :param key_: key to press with the <ctrl> key
-        """
-        # Create keyboard database to send hot-key programmatically
-        keyboard = Controller()
-
-        key_ = key_.lower()
-        keyboard.press(Key.ctrl)
-        keyboard.press(key_)
-        keyboard.release(key_)
-        keyboard.release(Key.ctrl)
-
-    @staticmethod
     def __about():
         messagebox.showinfo('About Movie Catalog',
                             f'Movie Catalog\n\nDeveloped to test a Fake Grid layout method '
                             f'based on a Real Place layout manager')
+
+
+def __press_ctrl_plus(key_):
+    """
+    Simulates to press a key while holding <ctrl> key
+    :param key_: key to press with the <ctrl> key
+    """
+    # Create keyboard controller to send hot-key programmatically (virtual keyboard events)
+    keyboard = Controller()
+
+    key_ = key_.lower()
+    keyboard.press(Key.ctrl)
+    keyboard.press(key_)
+    keyboard.release(key_)
+    keyboard.release(Key.ctrl)

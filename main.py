@@ -2,7 +2,6 @@
 
 __author__ = "Nestor D R"
 __version__ = "0.0.1"
-__license__ = "No license"
 
 # --- Python modules ---
 # sys: module which provides access to some variables used or maintained by the interpreter and to functions that
@@ -11,6 +10,7 @@ import sys
 # tkinter: package (“Tk interface”) which is the standard Python interface to the Tcl/Tk GUI toolkit.
 import tkinter as tk
 
+# --- App modules ---
 # view: package with user interface elements
 from view import gui
 
